@@ -1,15 +1,26 @@
-import React from 'react';
-import './App.css';
-import logo from './logo.svg';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { TodoList } from "./components/TodoList/TodoList";
 
 function App() {
+
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/todos").then((response) => {
+      console.log("api response ---");
+      console.log(response);
+      setTodos(response.data);
+    });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
         This is the Plugin Project 12345 app component.
-        <img src={logo} className="App-logo" alt="logo" />
 
-   
+        <TodoList data={todos}></TodoList>
       </header>
     </div>
   );
