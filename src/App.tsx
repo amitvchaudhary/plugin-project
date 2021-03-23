@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        This is the Plugin Project 12345 app component.
+        This is the Plugin Project 12345678910 app component.
 
         <TodoList data={todos}></TodoList>
       </header>
