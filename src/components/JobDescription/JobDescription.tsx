@@ -12,7 +12,7 @@ export const JobDescription = () => {
   return (
     <>
       <div>
-        <Link to={"/"}>Go back to List</Link>
+        <Link to={"/host-project"}>Go back to List</Link>
       </div>
 
       <div>It is a description of Job Id: {query.get("id")}</div>
