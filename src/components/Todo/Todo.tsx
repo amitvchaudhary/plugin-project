@@ -1,3 +1,5 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import "./Todo.css";
 
 export const Todo = (props: any) => {
@@ -5,8 +7,10 @@ export const Todo = (props: any) => {
   console.log(props);
   return (
     <div className="item">
-      <div>{props.data.id}</div>
-      <div>{props.data.title}</div>
+      <div><span>Job Id: </span>{props.data.jobId}</div>
+      <div><span>Job Title: </span><Link to={'/job?id=' + props.data.jobId }>{props.data.jobTitle}</Link></div>
+      <div><span>Job Location: </span>{props.data.jobLocation}</div>
+      <div><span>Job Description: </span>{props.data.jobDescription}</div>
       <br></br>
     </div>
   );

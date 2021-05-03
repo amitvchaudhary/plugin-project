@@ -1,26 +1,33 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch, useRouteMatch } from "react-router-dom";
 import "./App.css";
+import { JobDescription } from "./components/JobDescription/JobDescription";
 import { TodoList } from "./components/TodoList/TodoList";
+
 
 function App() {
 
-  const [todos, setTodos] = useState([]);
+  const match = useRouteMatch();
 
-  useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/todos").then((response) => {
-      console.log("api response ---");
-      console.log(response);
-      setTodos(response.data);
-    });
-  }, []);
+  console.log('route path ---');
+  console.log(match.path);
 
   return (
     <div className="App">
       <header className="App-header">
-        This is the Plugin Project 12345678910 app component.
-
-        <TodoList data={todos}></TodoList>
+        This is the Plugin Project 03/05/2021 app component.
+        <Router>
+          <div>
+            <Switch>
+              <Route path={'/job'}>
+                <JobDescription />
+              </Route>
+              <Route path={'/'} exact={true}>
+                <TodoList />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
       </header>
     </div>
   );
