@@ -19,10 +19,10 @@ function App() {
         <Router>
           <div>
             <Switch>
-              <Route path={'/job'}>
+              <Route path={'/host-project/job'}>
                 <JobDescription />
               </Route>
-              <Route path={'/'} exact={true}>
+              <Route path={'/host-project'} exact={true}>
                 <TodoList />
               </Route>
             </Switch>
