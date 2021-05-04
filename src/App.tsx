@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        This is the Plugin Project 03/05/2021 app component.
+        This is the Plugin Project 04/05/2021 app component.
         <Router>
           <div>
             <Switch>
