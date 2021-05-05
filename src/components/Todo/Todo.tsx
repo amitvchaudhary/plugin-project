@@ -15,7 +15,7 @@ export const Todo = (props: any) => {
         </div>
         <div>
           <span>Job Title: </span>
-          <Link to={"/host-project/job?id=" + props.data.jobId}>
+          <Link to={"/joblisting-page/job?id=" + props.data.jobId}>
             {props.data.jobTitle}
           </Link>
         </div>
@@ -51,7 +51,7 @@ export const Todo = (props: any) => {
               jsonldtype="Organization"
               schema={{
                 name: "Host Project",
-                sameAs: "https://amitvchaudhary.github.io/host-project/",
+                sameAs: "https://host-project.netlify.app/",
                 logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png"
               }}
             ></Generic>

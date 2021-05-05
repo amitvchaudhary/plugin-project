@@ -48,7 +48,7 @@ export const JobDescription = () => {
   return (
     <>
       <div>
-        <Link to={"/host-project"}>Go back to List</Link>
+        <Link to={"/joblisting-page"}>Go back to List</Link>
       </div>
       <br></br> <br></br>
       <div>It is a description of Job Id: {query.get("id")}</div>
@@ -60,25 +60,40 @@ export const JobDescription = () => {
             jsonldtype="JobPosting"
             schema={{
               title: job.title,
+              validThrough: "2021-06-03T12:00",
               baseSalary: job.baseSalary,
               jobBenefits: job.jobBenefits,
               datePosted: job.datePosted,
               description: job.description,
-              educationRequirements: job.educationRequirements,
               employmentType: job.employmentType,
               industry: job.industry,
               workHours: job.workHours,
             }}
           >
+          <Generic
+              type="hiringOrganization"
+              jsonldtype="Organization"
+              schema={{
+                name: "Host Project",
+                sameAs: "https://host-project.netlify.app/",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png"
+              }}
+            ></Generic>
             <Generic type="jobLocation" jsonldtype="Place">
               <Generic
                 type="address"
                 jsonldtype="PostalAddress"
                 schema={{
-                  addressLocality: job.addressLocality,
-                  addressRegion: job.addressRegion,
+                  streetAddress: "1600 Amphitheatre Pkwy",
+                  addressLocality: "Mountain View",
+                  addressRegion: "CA",
+                  postalCode: "94043",
+                  addressCountry: "US"
                 }}
               />
+            </Generic>
+            <Generic type="baseSalary" jsonldtype="MonetaryAmount" schema={{currency: "USD"}}>
+              <Generic type="value" jsonldtype="QuantitativeValue" schema={{value: "40.00", unitText: "HOUR"}}></Generic>
             </Generic>
           </Generic>
         </JSONLD>
